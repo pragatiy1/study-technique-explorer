@@ -7,7 +7,7 @@ body {
     background-image: url("images/hero.jpg");
 background-size: cover;
 background-position: center;
-    color: white;
+    color: beige;
 }
 
 nav {
@@ -17,14 +17,14 @@ nav {
 }
 
 nav a {
-    color: white;
+    color: beige;
     text-decoration: none;
     margin-left: 20px;
     font-weight: bold;
 }
 
 .hero-text {
-    text-align: center;
+    text-align: bottom;
     margin-top: 150px;
 }
 
@@ -34,8 +34,8 @@ nav a {
 
 .btn {
     background-color: #2c7be5;
-    padding: 12px 25px;
+    padding: 50px 100px;
     color: white;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 10px;
 }
