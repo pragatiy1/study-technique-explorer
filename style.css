@@ -1,0 +1,41 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.hero {
+    background-image: url("images/hero.jpg");
+background-size: cover;
+background-position: center;
+    color: white;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 40px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+.hero-text {
+    text-align: center;
+    margin-top: 150px;
+}
+
+.hero-text h1 {
+    font-size: 48px;
+}
+
+.btn {
+    background-color: #2c7be5;
+    padding: 12px 25px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
