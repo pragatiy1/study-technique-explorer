@@ -1,11 +1,31 @@
-# Study Technique Explorer
+# 📘 Study Technique Explorer
 
-A web-based application to explore effective study techniques using an interactive UI.
+## 📌 Project Purpose
+Study Technique Explorer is a simple educational web application designed to help students discover effective study techniques.  
+The app provides information about different learning strategies such as Pomodoro, Active Recall, Spaced Repetition, and more.
 
-## Technologies Used
-- Flutter Web
+This project was created as part of an academic assignment to demonstrate:
+- Frontend development
+- GitHub version control
+- Branching and merging
+- Documentation
+
+---
+
+## 🛠 Technologies Used
+- HTML5
+- CSS3
 - Git & GitHub
-- Docker
 
-## Project Stage
-Stage 1: Project Setup
+---
+
+## ▶ How to Run the Project
+1. Download or clone the repository
+2. Open the project folder
+3. Double-click `index.html`
+4. The website will open in your browser
+
+---
+
+## 📂 Project Structure
+
