@@ -28,4 +28,6 @@ This project was created as part of an academic assignment to demonstrate:
 ---
 
 ## 📂 Project Structure
+ techniques-list
 
+ main
