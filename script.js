@@ -125,3 +125,101 @@ function nextCard() {
     card.textContent = flashcards[currentCard].question;
     showingAnswer = false;
 }
+
+let mediaRecorder;
+let audioChunks = [];
+
+const startButton = document.getElementById("startRecord");
+const stopButton = document.getElementById("stopRecord");
+const audioPlayback = document.getElementById("audioPlayback");
+
+if (startButton) {
+
+    startButton.addEventListener("click", async () => {
+        let stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+
+        mediaRecorder = new MediaRecorder(stream);
+        mediaRecorder.start();
+
+        audioChunks = [];
+
+        mediaRecorder.addEventListener("dataavailable", event => {
+            audioChunks.push(event.data);
+        });
+
+        mediaRecorder.addEventListener("stop", () => {
+            const audioBlob = new Blob(audioChunks);
+            const audioUrl = URL.createObjectURL(audioBlob);
+            audioPlayback.src = audioUrl;
+        });
+
+        startButton.disabled = true;
+        stopButton.disabled = false;
+    });
+
+    stopButton.addEventListener("click", () => {
+        mediaRecorder.stop();
+        startButton.disabled = false;
+        stopButton.disabled = true;
+    });
+}
+
+function addNote() {
+    let input = document.getElementById("noteInput");
+    let list = document.getElementById("notesList");
+
+    if (!input || !list) return;
+
+    let noteText = input.value.trim();
+
+    if (noteText === "") {
+        alert("Please write something first!");
+        return;
+    }
+
+    let li = document.createElement("li");
+    li.textContent = noteText;
+
+    let deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "Delete";
+    deleteBtn.style.marginLeft = "10px";
+
+    deleteBtn.onclick = function() {
+        list.removeChild(li);
+    };
+
+    li.appendChild(deleteBtn);
+    list.appendChild(li);
+
+    input.value = "";
+}
+function checkQuiz() {
+
+    let answers = {
+        q1: "tokyo",
+        q2: "mars",
+        q3: "william shakespeare",
+        q4: "54",
+        q5: "carbon dioxide"
+    };
+
+    let score = 0;
+
+    for (let key in answers) {
+        let userAnswer = document.getElementById(key).value.toLowerCase().trim();
+        if (userAnswer === answers[key]) {
+            score++;
+        }
+    }
+
+    let result = document.getElementById("result");
+    if (!result) return;
+
+    result.textContent = "Your Score: " + score + " / 5";
+
+    if (score === 5) {
+        result.style.color = "green";
+    } else {
+        result.style.color = "red";
+    }
+}
