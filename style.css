@@ -309,3 +309,23 @@ textarea {
 .flashcard:hover {
     transform: scale(1.05);
 }
+
+#noteInput {
+    padding: 8px;
+    width: 60%;
+    margin-top: 10px;
+}
+
+#notesList {
+    margin-top: 20px;
+    list-style: none;
+    padding: 0;
+}
+
+#notesList li {
+    background: #f0f0f0;
+    margin: 10px auto;
+    padding: 10px;
+    width: 60%;
+    border-radius: 6px;
+}
