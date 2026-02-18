@@ -82,3 +82,46 @@ function checkExplanation() {
         feedback.style.color = "green";
     }
 }
+let flashcards = [
+    {
+        question: "What is Active Recall?",
+        answer: "Testing yourself without looking at notes."
+    },
+    {
+        question: "What is Spaced Repetition?",
+        answer: "Reviewing information at increasing time intervals."
+    },
+    {
+        question: "Why is the Leitner System effective?",
+        answer: "It focuses more on difficult cards and less on easy ones."
+    }
+];
+
+let currentCard = 0;
+let showingAnswer = false;
+
+function flipCard() {
+    let card = document.getElementById("cardText");
+    if (!card) return;
+
+    if (showingAnswer) {
+        card.textContent = flashcards[currentCard].question;
+        showingAnswer = false;
+    } else {
+        card.textContent = flashcards[currentCard].answer;
+        showingAnswer = true;
+    }
+}
+
+function nextCard() {
+    let card = document.getElementById("cardText");
+    if (!card) return;
+
+    currentCard++;
+    if (currentCard >= flashcards.length) {
+        currentCard = 0;
+    }
+
+    card.textContent = flashcards[currentCard].question;
+    showingAnswer = false;
+}
