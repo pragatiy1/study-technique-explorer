@@ -125,3 +125,41 @@ function nextCard() {
     card.textContent = flashcards[currentCard].question;
     showingAnswer = false;
 }
+
+let mediaRecorder;
+let audioChunks = [];
+
+const startButton = document.getElementById("startRecord");
+const stopButton = document.getElementById("stopRecord");
+const audioPlayback = document.getElementById("audioPlayback");
+
+if (startButton) {
+
+    startButton.addEventListener("click", async () => {
+        let stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+
+        mediaRecorder = new MediaRecorder(stream);
+        mediaRecorder.start();
+
+        audioChunks = [];
+
+        mediaRecorder.addEventListener("dataavailable", event => {
+            audioChunks.push(event.data);
+        });
+
+        mediaRecorder.addEventListener("stop", () => {
+            const audioBlob = new Blob(audioChunks);
+            const audioUrl = URL.createObjectURL(audioBlob);
+            audioPlayback.src = audioUrl;
+        });
+
+        startButton.disabled = true;
+        stopButton.disabled = false;
+    });
+
+    stopButton.addEventListener("click", () => {
+        mediaRecorder.stop();
+        startButton.disabled = false;
+        stopButton.disabled = true;
+    });
+}
