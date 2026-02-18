@@ -177,3 +177,100 @@ h1 {
 .l-leitner     { bottom: 50px; right: 80px; text-align: left; color: #4285f4; }
 .l-blurting    { bottom: 50px; left: 100px; text-align: right; color: #fbbc04; }
 .l-secondbrain { top: 280px; left: 0px; text-align: right; color: #f29900; }
+
+/* Pomodoro Timer */
+.pomodoro {
+    text-align: center;
+    margin-top: 60px;
+    padding: 20px;
+}
+
+#timer {
+    font-size: 60px;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.buttons button {
+    padding: 10px 20px;
+    margin: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.pomodoro {
+    text-align: center;
+    margin-top: 120px;
+    padding: 40px;
+    background: white;
+    border-radius: 15px;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+#timer {
+    font-size: 80px;
+    font-weight: bold;
+    margin: 25px 0;
+    color: #333;
+}
+
+.buttons button {
+    padding: 12px 25px;
+    margin: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#startBtn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#pauseBtn {
+    background-color: #ff9800;
+    color: white;
+}
+
+#resetBtn {
+    background-color: #f44336;
+    color: white;
+}
+
+.buttons button:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+
+
+
+
+
+.tech-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.tech-link:hover {
+    transform: scale(1.05);
+}
+
+
+
+.content {
+    width: 60%;
+    margin: 50px auto;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.content button {
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+}
