@@ -329,3 +329,14 @@ textarea {
     width: 60%;
     border-radius: 6px;
 }
+
+.home-page {
+    background: linear-gradient(135deg, #f7efe5, #f3e2d4);
+    min-height: 100vh;
+}
+
+.home-page h1 {
+    color: #4a3f35;  /* dark warm brown */
+}
+
+
