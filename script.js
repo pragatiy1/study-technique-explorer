@@ -1,47 +1,84 @@
-let timeLeft = 25 * 60;
-let timerInterval = null;
+let timerDisplay = document.getElementById("timer");
 
-const timerDisplay = document.getElementById("timer");
-const startBtn = document.getElementById("startBtn");
-const pauseBtn = document.getElementById("pauseBtn");
-const resetBtn = document.getElementById("resetBtn");
+if (timerDisplay) {
 
-function updateDisplay() {
-    let minutes = Math.floor(timeLeft / 60);
-    let seconds = timeLeft % 60;
+    let timeLeft = 25 * 60;
+    let timerInterval = null;
 
-    seconds = seconds < 10 ? "0" + seconds : seconds;
-    timerDisplay.textContent = minutes + ":" + seconds;
-}
+    const startBtn = document.getElementById("startBtn");
+    const pauseBtn = document.getElementById("pauseBtn");
+    const resetBtn = document.getElementById("resetBtn");
 
-function startTimer() {
-    if (timerInterval !== null) return;
+    function updateDisplay() {
+        let minutes = Math.floor(timeLeft / 60);
+        let seconds = timeLeft % 60;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+        timerDisplay.textContent = minutes + ":" + seconds;
+    }
 
-    timerInterval = setInterval(() => {
-        if (timeLeft > 0) {
-            timeLeft--;
-            updateDisplay();
-        } else {
-            clearInterval(timerInterval);
-            alert("Time's up! Take a break 🎉");
-        }
-    }, 1000);
-}
+    function startTimer() {
+        if (timerInterval !== null) return;
 
-function pauseTimer() {
-    clearInterval(timerInterval);
-    timerInterval = null;
-}
+        timerInterval = setInterval(() => {
+            if (timeLeft > 0) {
+                timeLeft--;
+                updateDisplay();
+            } else {
+                clearInterval(timerInterval);
+                alert("Time's up! Take a break 🎉");
+            }
+        }, 1000);
+    }
 
-function resetTimer() {
-    clearInterval(timerInterval);
-    timerInterval = null;
-    timeLeft = 25 * 60;
+    function pauseTimer() {
+        clearInterval(timerInterval);
+        timerInterval = null;
+    }
+
+    function resetTimer() {
+        clearInterval(timerInterval);
+        timerInterval = null;
+        timeLeft = 25 * 60;
+        updateDisplay();
+    }
+
+    startBtn.addEventListener("click", startTimer);
+    pauseBtn.addEventListener("click", pauseTimer);
+    resetBtn.addEventListener("click", resetTimer);
+
     updateDisplay();
 }
 
-startBtn.addEventListener("click", startTimer);
-pauseBtn.addEventListener("click", pauseTimer);
-resetBtn.addEventListener("click", resetTimer);
+function checkExplanation() {
+    let text = document.getElementById("explainBox").value;
+    let feedback = document.getElementById("feedback");
 
-updateDisplay();
+    if (text.length < 50) {
+        feedback.textContent = "Try explaining in more detail!";
+    } else {
+        feedback.textContent = "Great! Now try simplifying it further.";
+    }
+}
+
+function checkExplanation() {
+
+    let textArea = document.getElementById("explainBox");
+    let feedback = document.getElementById("feedback");
+
+    if (!textArea) return; // prevents errors on other pages
+
+    let text = textArea.value.trim();
+
+    if (text.length < 30) {
+        feedback.textContent = "❌ Too short! Try explaining in more detail.";
+        feedback.style.color = "red";
+    } 
+    else if (text.split(" ").length > 100) {
+        feedback.textContent = "⚠️ Good length, but try simplifying your explanation.";
+        feedback.style.color = "orange";
+    } 
+    else {
+        feedback.textContent = "✅ Great! Your explanation looks clear and simple.";
+        feedback.style.color = "green";
+    }
+}
