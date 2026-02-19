@@ -345,3 +345,10 @@ body {
     box-shadow: 0 10px 25px rgba(0,0,0,0.08);
 }
 
+.home-page h1,
+.home-page h2,
+.home-page p,
+.home-page a {
+    color: #000000;   /* pure black */
+    font-weight: bold;
+}
